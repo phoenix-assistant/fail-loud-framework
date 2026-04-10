@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fail-loud-framework"
+version = "0.1.0"
+description = "Middleware that enforces visible, traceable failures over silent fake data in AI agent systems"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [{ name = "Phoenix Assistant", email = "phoenix@example.com" }]
+keywords = ["ai", "agents", "reliability", "validation", "circuit-breaker", "fail-loud"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+webhook = ["fastapi>=0.100", "uvicorn>=0.20"]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
+
+[project.urls]
+Homepage = "https://github.com/phoenix-assistant/fail-loud-framework"
+Repository = "https://github.com/phoenix-assistant/fail-loud-framework"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fail_loud"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
